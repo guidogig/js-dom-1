@@ -1,24 +1,24 @@
-let status = 0;
-const lightbulb = document.getElementById('lightbulb');
-const switchBtn = document.getElementById('switchBtn');
-const bg = document.getElementById('container');
-
+let accesa = false;
+const lightbulb = document.getElementById("lightbulb");
+const switchBtn = document.getElementById("switchBtn");
+const bgCol = document.getElementById("container");
 
 const changeStatus = () => {
-    if (status == 0) {
-        bg.className = 'light';
-        lightbulb.src = 'img/yellow_lamp.png';
-        switchBtn.innerText = 'Spegni';
-        status = 1;
-        console.log('Ho acceso la lampadina');
+    if (accesa == false) {
+        bgCol.classList.add("light");
+        bgCol.classList.remove("dark");
+        lightbulb.src = "img/yellow_lamp.png";
+        switchBtn.innerText = "Spegni";
+        accesa = true;
+        console.log("Ho acceso la lampadina");
     } else {
-        bg.className = 'dark';
-        lightbulb.src = 'img/white_lamp.png';
-        switchBtn.innerText = 'Accendi';
-        status = 0;
-        console.log('Ho spento la lampadina');
+        bgCol.classList.add("dark");
+        bgCol.classList.remove("light");
+        lightbulb.src = "img/white_lamp.png";
+        switchBtn.innerText = "Accendi";
+        accesa = false;
+        console.log("Ho spento la lampadina");
     }
 };
 
-
-switchBtn.addEventListener('click', changeStatus); 
+switchBtn.addEventListener("click", changeStatus);
